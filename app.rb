@@ -2,18 +2,14 @@ require 'pg'
 require 'sequel'
 require 'sinatra'
 
-DB = Sequel.connect(ENV['DATABASE_URL'])
-
-class Trip < Sequel::Model
-end
-
-class Person < Sequel::Model(:people)
-end
+require_relative 'db/connect'
+require_relative 'models/trip'
+require_relative 'models/person'
 
 get '/trips' do
-  Trip.map(:date).join('<br>')
+  Trip.all.to_json
 end
 
 get '/people' do
-  Person.map(:name).join('<br>')
+  Person.all.to_json
 end
