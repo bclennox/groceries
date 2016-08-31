@@ -6,3 +6,7 @@ gem 'pg'
 gem 'rerun'
 gem 'sequel'
 gem 'sinatra', '2.0.0.beta2'
+
+group :test do
+  gem 'rspec'
+end
