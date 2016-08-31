@@ -8,6 +8,6 @@ require_relative 'models/trip'
 require_relative 'models/person'
 
 get '/trips/:id' do
-  trip = Trip[id: params[:id]]
+  trip = params[:id] == 'latest' ? Trip.latest : Trip[id: params[:id]]
   JsonApiSerializer.new(trip, relationships: :people).to_json
 end

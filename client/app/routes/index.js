@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model() {
-    return this.get('store').findRecord('trip', 1);
+  beforeModel() {
+    this.transitionTo('trip', 'latest');
   }
 });
