@@ -1,3 +1,11 @@
-{{#each model as |n|}}
-  {{n.date}}
-{{/each}}
+<ul>
+  <li>
+    {{model.date}}
+
+    <ul>
+      {{#each model.people as |person|}}
+        <li>{{person.name}}</li>
+      {{/each}}
+    </ul>
+  </li>
+</ul>
