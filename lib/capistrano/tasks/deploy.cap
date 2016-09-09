@@ -1,0 +1,32 @@
+namespace :deploy do
+
+  desc 'Run database migrations'
+  task :migrate do
+    on roles(:db) do
+      within release_path.join('server') do
+        database_url = capture(:awk, '-F=', "'{ print $2 }'", '.rbenv-vars')
+        execute :bundle, :exec, :sequel, '-m', File.join('db', 'migrate'), database_url
+      end
+    end
+  end
+
+  desc 'Build client app (locally)'
+  task :build do
+    on(:local) do
+      within 'client' do
+        execute :ember, :build
+      end
+    end
+  end
+
+  desc 'Upload client app'
+  task :upload => [:build] do
+    on roles(:app) do
+      target = within release_path do
+        capture(:pwd)
+      end
+      upload! 'client/dist', target, recursive: true
+      execute :mv, File.join(target, 'dist'), release_path.join('server', 'public')
+    end
+  end
+end
