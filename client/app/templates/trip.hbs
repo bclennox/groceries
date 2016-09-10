@@ -1,10 +1,20 @@
+<h1>Trips</h1>
+
 <ul>
   <li>
     {{model.date}}
 
+    <h2>People</h2>
     <ul>
       {{#each model.people as |person|}}
         <li>{{person.name}}</li>
+      {{/each}}
+    </ul>
+
+    <h2>Items</h2>
+    <ul>
+      {{#each model.items as |item|}}
+        <li>{{item.value}} ({{item.person.name}})</li>
       {{/each}}
     </ul>
   </li>
