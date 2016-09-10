@@ -4,8 +4,7 @@ namespace :deploy do
   task :migrate do
     on roles(:db) do
       within release_path.join('server') do
-        database_url = capture(:awk, '-F=', "'{ print $2 }'", '.rbenv-vars')
-        execute :bundle, :exec, :sequel, '-m', File.join('db', 'migrate'), database_url
+        execute :bundle, :exec, :sequel, '-m', File.join('db', 'migrate'), File.join('db', 'config.yml')
       end
     end
   end
