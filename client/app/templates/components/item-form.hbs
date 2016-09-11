@@ -1,0 +1,10 @@
+<select onchange={{action 'personIdChanged' value='target.value'}}>
+  <option></option>
+  {{#each trip.people as |person|}}
+    <option value={{person.id}}>{{person.name}}</option>
+  {{/each}}
+</select>
+
+{{input type="text" value=itemValue}}
+
+<button {{action 'add'}}>Add</button>
