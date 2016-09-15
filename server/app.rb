@@ -11,9 +11,16 @@ require_relative 'serializers/trip_serializer'
 require_relative 'serializers/person_serializer'
 require_relative 'serializers/item_serializer'
 
-get '/api/trips/:id' do
-  trip = params[:id] == 'latest' ? Trip.latest : Trip[id: params[:id]]
+def render_trip(trip)
   trip.to_json_api(include: %w(people items items.person))
+end
+
+get '/api/trips/latest' do
+  render_trip(Trip.latest)
+end
+
+get '/api/trips/:id' do
+  render_trip(Trip[id: params[:id]])
 end
 
 get '/api/people/:id' do
