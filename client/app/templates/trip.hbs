@@ -1,23 +1,27 @@
-<h1>Trips</h1>
-
-<ul>
-  <li>
-    {{model.date}}
-
-    <h2>People</h2>
-    <ul>
+<div class="container">
+  <div class="col-md-5 people">
+    <h2>Who's Coming</h2>
+    <ul class="list-inline">
       {{#each model.people as |person|}}
-        <li>{{person.name}}</li>
+        <li>{{person-avatar person=person}}</li>
       {{/each}}
     </ul>
+  </div>
 
-    <h2>Items</h2>
-    <ul>
+  <div class="col-md-7 items">
+    <h2>What's Coming</h2>
+
+    {{item-form trip=model}}
+
+    <hr>
+
+    <ul class="list-group">
       {{#each model.items as |item|}}
-        <li>{{item.value}} ({{item.person.name}})</li>
+        <li class="list-group-item">
+          <span class="badge">{{item.person.name}}</span>
+          {{item.value}}
+        </li>
       {{/each}}
     </ul>
-  </li>
-</ul>
-
-{{item-form trip=model}}
+  </div>
+</div>

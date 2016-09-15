@@ -13,5 +13,6 @@
 /connect.lock
 /coverage/*
 /libpeerconnection.log
+/public/assets/images/people/*
 npm-debug.log
 testem.log
