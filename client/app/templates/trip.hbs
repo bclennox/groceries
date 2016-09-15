@@ -2,7 +2,7 @@
   <div class="col-md-5 people">
     <h2>Who's Coming</h2>
     <ul class="list-inline">
-      {{#each model.people as |person|}}
+      {{#each people as |person|}}
         <li>{{person-avatar person=person}}</li>
       {{/each}}
     </ul>
@@ -16,7 +16,7 @@
     <hr>
 
     <ul class="list-group">
-      {{#each model.items as |item|}}
+      {{#each items as |item|}}
         <li class="list-group-item">
           <span class="badge">{{item.person.name}}</span>
           {{item.value}}
