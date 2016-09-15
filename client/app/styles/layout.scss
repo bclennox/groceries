@@ -1,0 +1,23 @@
+body {
+  padding-bottom: 100px;
+}
+
+#masthead {
+  background-image: url(/assets/images/masthead.jpg);
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  padding-top: 360px;
+  padding-bottom: 80px;
+
+  h1,
+  h2 {
+    color: #fff;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 48px;
+    text-transform: uppercase;
+  }
+}
