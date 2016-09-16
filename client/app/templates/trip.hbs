@@ -1,30 +1,42 @@
 <div class="container">
-  <div class="col-md-5 people">
-    <h2>Who's Coming</h2>
+  <div class="row">
+    <div class="col-md-5 people">
+      <h2>Who's Coming</h2>
 
-    <hr>
+      <hr>
 
-    <ul class="list-inline">
-      {{#each people as |person|}}
-        <li>{{person-avatar person=person}}</li>
-      {{/each}}
-    </ul>
+      <ul class="list-inline">
+        {{#each people as |person|}}
+          <li>{{person-avatar person=person}}</li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class="col-md-7 items">
+      <h2>What's Coming</h2>
+
+      <hr>
+
+      {{item-form trip=model}}
+
+      <ul class="list-group">
+        {{#each items as |item|}}
+          <li class="list-group-item">
+            <span class="badge">{{item.person.name}}</span>
+            {{item.value}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
   </div>
 
-  <div class="col-md-7 items">
-    <h2>What's Coming</h2>
+  <hr>
 
-    <hr>
-
-    {{item-form trip=model}}
-
-    <ul class="list-group">
-      {{#each items as |item|}}
-        <li class="list-group-item">
-          <span class="badge">{{item.person.name}}</span>
-          {{item.value}}
-        </li>
-      {{/each}}
-    </ul>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.7478643703444!2d-76.88639528444152!3d35.46103604962343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89af3ecd90cd59d5%3A0x3b1be658ca368fec!2s127+Goose+Creek+Dr%2C+Washington%2C+NC+27889!5e0!3m2!1sen!2sus!4v1473991552231" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+    </div>
   </div>
 </div>
