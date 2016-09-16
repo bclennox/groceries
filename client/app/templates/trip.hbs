@@ -1,6 +1,9 @@
 <div class="container">
   <div class="col-md-5 people">
     <h2>Who's Coming</h2>
+
+    <hr>
+
     <ul class="list-inline">
       {{#each people as |person|}}
         <li>{{person-avatar person=person}}</li>
@@ -11,9 +14,9 @@
   <div class="col-md-7 items">
     <h2>What's Coming</h2>
 
-    {{item-form trip=model}}
-
     <hr>
+
+    {{item-form trip=model}}
 
     <ul class="list-group">
       {{#each items as |item|}}
