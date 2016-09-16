@@ -1,14 +1,43 @@
+.people,
+.items {
+  h2 {
+    text-align: center;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    h2 {
+      text-align: left;
+    }
+  }
+}
+
+.items {
+  form {
+    text-align: center;
+
+    button {
+      min-width: 150px;
+    }
+  }
+
+  @media (min-width: $screen-sm-min) {
+    form {
+      text-align: left;
+
+      button {
+        min-width: 0;
+      }
+    }
+  }
+}
+
 .people {
   ul li {
     margin-bottom: 20px;
   }
 
-  li:nth-child(4n) {
-    padding-right: 0;
-  }
-
   .avatar {
-    width: 100px;
+    width: 80px;
     margin-bottom: 5px;
   }
 
@@ -16,14 +45,36 @@
     display: block;
     text-align: center;
   }
+
+  @media (max-width: $screen-sm-min) {
+    ul {
+      @include center-block;
+      text-align: center;
+    }
+  }
+
+  @media (min-width: $screen-sm-min) {
+    li:nth-child(4n) {
+      padding-right: 0;
+    }
+
+    .avatar {
+      width: 104px;
+    }
+  }
 }
 
 .map {
   width: 100%;
-  height: 600px;
 
   iframe {
     width: 100%;
     height: 100%;
+  }
+
+  height: 200px;
+
+  @media (min-width: $screen-sm-min) {
+    height: 600px;
   }
 }
