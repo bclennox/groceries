@@ -9,5 +9,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('server/log', 'server/tmp/cache')
 set :rbenv_ruby, File.read('.ruby-version').strip
 set :bundle_gemfile, -> { release_path.join('server/Gemfile') }
 
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+
 after 'deploy:updated', 'deploy:migrate'
 after 'deploy:updated', 'deploy:upload'
