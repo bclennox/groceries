@@ -1,0 +1,22 @@
+.items {
+  .item {
+    .badge {
+      margin-right: 10px;
+    }
+
+    .remove-item {
+      display: none;
+      position: absolute;
+      top: 13px;
+      right: 6px;
+      color: #c00;
+      cursor: pointer;
+    }
+
+    &:hover {
+      .remove-item {
+        display: inline;
+      }
+    }
+  }
+}

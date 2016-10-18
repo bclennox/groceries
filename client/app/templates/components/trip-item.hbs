@@ -1,0 +1,9 @@
+<li class="list-group-item item">
+  {{#if item.editable}}
+    <span class="remove-item glyphicon glyphicon-remove" {{action 'destroy'}}></span>
+  {{/if}}
+
+  <span class="badge">{{item.person.name}}</span>
+
+  {{item.value}}
+</li>

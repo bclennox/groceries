@@ -5,4 +5,8 @@ class Item < Sequel::Model(:items)
 
   many_to_one :trip
   many_to_one :person
+
+  def token?
+    !token.to_s.empty?
+  end
 end

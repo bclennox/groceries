@@ -21,10 +21,7 @@
 
       <ul class="list-group">
         {{#each items as |item|}}
-          <li class="list-group-item">
-            <span class="badge">{{item.person.name}}</span>
-            {{item.value}}
-          </li>
+          {{trip-item item=item}}
         {{/each}}
       </ul>
     </div>
